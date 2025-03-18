@@ -12,4 +12,21 @@ class ItemsController extends Controller
 
         return view('items', compact('items'));
     }
+
+    public function create() {
+        return view('create');
+    }
+
+    public function store(Request $request) {
+
+        Items::create([
+            'name' => $request->name,
+            'description' => $request->description,
+            'quantity' => $request->quantity,
+            'created_at' => now(),
+            'updated_at' => now()
+        ]);
+
+        return redirect()->route('items');
+    }
 }

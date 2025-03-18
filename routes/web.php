@@ -18,4 +18,6 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/items', [ItemsController::class, 'index']);
+Route::get('/items', [ItemsController::class, 'index'])->name('items');
+Route::get('/items/create', [ItemsController::class, 'create'])->name('items.create');
+Route::post('/items/store' ,[ItemsController::class, 'store'])->name('items.store');
